@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 export default function GamePage() {
     return (
-        <Suspense fallback={<span>Loading</span>}>
+        <Suspense fallback={<span>Go!</span>}>
             <Questions />
         </Suspense>
     );

@@ -1,23 +1,23 @@
 import { lexendSemibold } from "@/features/shared/presenters/typography";
 import { Answer } from "../domain/answer";
 import { Question } from "../domain/question";
-import { QuizzPadOptions } from "./quizz-game-options";
+import { QuestionAnswers } from "./question-answer";
 
-interface QuestionContentProps {
+interface Props {
     question: Question;
     isAnswerShowing: boolean;
     onAnswerClick: (answer: Answer) => void;
     selectedAnswer: Answer | null;
 }
 
-export function QuestionContent({ question, isAnswerShowing, onAnswerClick, selectedAnswer }: QuestionContentProps) {
+export function QuestionContent({ question, isAnswerShowing, onAnswerClick, selectedAnswer }: Props) {
 
     return (
         <article className="flex flex-col justify-around items-center flex-grow gap-4">
             <h2 className={"text-4xl max-sm:text-2xl text-center max-sm:text-left " + lexendSemibold}>
                 {question.text}
             </h2>
-            <QuizzPadOptions
+            <QuestionAnswers
                 answers={question.answers}
                 isAnswerShowing={isAnswerShowing}
                 onAnswerClick={onAnswerClick}

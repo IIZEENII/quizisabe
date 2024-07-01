@@ -14,5 +14,9 @@ const _questions: Question[] = [
 ]
 
 export async function getAllQuestions(): Promise<Question[]> {
-    return _questions;
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(_questions);
+        }, 10000)
+    });
 }

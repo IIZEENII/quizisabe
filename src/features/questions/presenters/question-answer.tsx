@@ -7,7 +7,7 @@ interface QuizzPadOptionsProps {
     onAnswerClick: (answer: Answer) => void;
 }
 
-export function QuizzPadOptions({ answers, isAnswerShowing, onAnswerClick, selectedAnswer }: QuizzPadOptionsProps) {
+export function QuestionAnswers({ answers, isAnswerShowing, onAnswerClick, selectedAnswer }: QuizzPadOptionsProps) {
     return (
         <ul className="flex gap-2 flex-wrap">
             {answers.map((answer, index) => (

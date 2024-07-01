@@ -5,7 +5,7 @@ interface Props {
     maxSeconds: number;
 }
 
-export function QuizzPadHeader({ progress, maxSeconds }: Props) {
+export function QuizzGameHeader({ progress, maxSeconds }: Props) {
     return (
         <div className="flex gap-8 w-full items-center">
             <ProgressBar value={progress * (100 / maxSeconds)} className="w-full" />
