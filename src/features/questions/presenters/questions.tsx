@@ -1,8 +1,9 @@
-import { getAllQuestions } from "../application/get-all-questions";
+import { getRandomQuestions } from "../application/get-random-questions";
 import { QuizzGame } from "./quizz-game";
 
 export async function Questions() {
-    const questions = await getAllQuestions()
+    const questions = await getRandomQuestions()
+
     return (
         <QuizzGame questions={questions} />
     );
