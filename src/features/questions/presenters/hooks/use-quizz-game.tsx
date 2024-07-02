@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { Question } from "../../domain/question";
 import { Answer } from "../../domain/answer";
 import { useQuizStore } from "../stores/quiz-store";
+import { useQuestionCacheStore } from "../stores/question-cache-store";
 
 export const useQuizGame = (questions: Question[], maxSeconds: number) => {
     const [progress, setProgress] = useState(maxSeconds);
@@ -12,6 +13,7 @@ export const useQuizGame = (questions: Question[], maxSeconds: number) => {
     const [isGameFinished, setIsGameFinished] = useState(false);
     const incrementScore = useQuizStore((state) => state.incrementScore);
     const resetScore = useQuizStore((state) => state.resetScore);
+    const resetCacheQuestions = useQuestionCacheStore((state) => state.resetQuestions);
 
     const currentQuestion = questions[currentQuestionIndex];
 
@@ -57,6 +59,7 @@ export const useQuizGame = (questions: Question[], maxSeconds: number) => {
     }, [incrementScore, handleNextQuestion]);
 
     const handleRestart = useCallback(() => {
+        resetCacheQuestions();
         setIsGameFinished(false);
         setCurrentQuestionIndex(0);
         resetScore();

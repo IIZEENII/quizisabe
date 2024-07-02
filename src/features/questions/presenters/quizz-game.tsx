@@ -5,12 +5,22 @@ import { QuizzGameHeader } from "./quizz-game-header";
 import { QuizzGameResults } from "./quizz-game-results";
 import { useQuizGame } from "./hooks/use-quizz-game";
 import { QuestionContent } from "./question-content";
+import { useQuestionCacheStore } from "./stores/question-cache-store";
 
 interface Props {
     questions: Question[];
 }
 
 export function QuizzGame({ questions }: Props) {
+    const cacheQuestions = useQuestionCacheStore(state => state.questions);
+    const setCacheQuestions = useQuestionCacheStore(state => state.setQuestions);
+    setCacheQuestions(questions);
+    
+    
+    if(cacheQuestions) {
+        questions = cacheQuestions;
+    } 
+
     const MAX_SECONDS = 15;
 
     const {

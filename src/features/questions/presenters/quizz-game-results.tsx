@@ -1,7 +1,7 @@
 import { lexendSemibold } from "@/features/shared/presenters/typography";
 import { useQuizStore } from "./stores/quiz-store";
 import Image from "next/image";
-import { Button } from "@/features/shared/presenters/ui/button";
+import { Button, buttonVariants } from "@/features/shared/presenters/ui/button";
 import Link from "next/link";
 
 
@@ -49,11 +49,7 @@ export function QuizzGameResults({ onRestart }: Props) {
                 <Button onClick={onRestart}>
                     Restart Game
                 </Button>
-                <Link href="/" >
-                    <Button onClick={onRestart}>
-                        Home
-                    </Button>
-                </Link>
+                <Link href="/" className={buttonVariants()} >Home</Link>
             </div>
             
         </div>
